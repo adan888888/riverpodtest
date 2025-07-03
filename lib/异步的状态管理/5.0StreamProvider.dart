@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'dart:async';
 
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 ///
 /// StreamProvider
 // 用于持续发出数据（适合 WebSocket、传感器、定时器等）
