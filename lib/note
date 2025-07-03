@@ -1,0 +1,5 @@
+不可变数据：Provider
+简单可变状态：StateProvider
+复杂状态逻辑：StateNotifierProvider
+异步操作：FutureProvider / StreamProvider
+旧代码兼容：ChangeNotifierProvider

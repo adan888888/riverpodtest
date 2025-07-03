@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-// 1. Provider 提供不可变数据（如配置、服务实例），不支持直接修改
-// final configProvider = Provider((ref) => AppConfig());
 
 // 2. StateProvider 定义一个简单的状态提供者
 final counterProvider = StateProvider((ref) => 0);
