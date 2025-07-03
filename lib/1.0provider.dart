@@ -1,7 +1,4 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
-
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // 1. Provider 提供不可变数据（如配置、服务实例），不支持直接修改
@@ -25,9 +22,17 @@ class MyApp extends ConsumerWidget {
       home: Scaffold(
         appBar: AppBar(title: Text('Riverpod 示例')),
         body: Center(child: Text('计数: ${cg.apiBaseUrl}')),
-        floatingActionButton: FloatingActionButton(onPressed: () => ref.read(configProvider.notifier).update((state) => state.copyWith(
-            apiBaseUrl: 'new-url',   //只能过ref.read来修改 ，其它的方式不允许
-          )), child: Icon(Icons.add)),
+        floatingActionButton: FloatingActionButton(
+          onPressed:
+              () => ref
+                  .read(configProvider.notifier)
+                  .update(
+                    (state) => state.copyWith(
+                      apiBaseUrl: 'new-url', //只能过ref.read来修改 ，其它的方式不允许
+                    ),
+                  ),
+          child: Icon(Icons.add),
+        ),
       ),
     );
   }
@@ -40,9 +45,6 @@ class AppConfig {
   AppConfig({required this.apiBaseUrl, required this.isDebugMode});
 
   AppConfig copyWith({String? apiBaseUrl, bool? isDebugMode}) {
-    return AppConfig(
-      apiBaseUrl: apiBaseUrl ?? this.apiBaseUrl,
-      isDebugMode: isDebugMode ?? this.isDebugMode,
-    );
+    return AppConfig(apiBaseUrl: apiBaseUrl ?? this.apiBaseUrl, isDebugMode: isDebugMode ?? this.isDebugMode);
   }
 }
