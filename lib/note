@@ -1,5 +1,16 @@
-不可变数据：Provider
-简单可变状态：StateProvider
-复杂状态逻辑：StateNotifierProvider
-异步操作：FutureProvider / StreamProvider
-旧代码兼容：ChangeNotifierProvider
+RiverPod和getx的状态管理的对比：
+    不可变数据：Provider
+    简单可变状态：StateProvider
+    复杂状态逻辑：StateNotifierProvider
+    异步操作：FutureProvider / StreamProvider
+    旧代码兼容：ChangeNotifierProvider
+
+
+GoRouter和getx的路由的对比：
+    GoRouter 适合追求官方支持、复杂导航需求、Web 端一致性的场景。
+    GetX Router 适合需要快速开发、状态管理与路由无缝集成的场景。
+
+
+总结：
+    GoRouter：性能稳定，适合大型应用和复杂导航，与官方生态集成更好。
+    GetX Router：启动和导航速度略优，适合快速开发和中小型项目。  
