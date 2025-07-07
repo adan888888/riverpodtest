@@ -28,7 +28,13 @@ class LoginScreen extends StatelessWidget {
             Text("是否是VIP：$isVip"),
             ElevatedButton(
               onPressed: () {
-                context.pushReplacement(homeRouter);
+                // 返回任意类型的数据（这里返回Map）
+                final result = {
+                  'status': 'success',
+                  'message': '操作完成',
+                  'timestamp': DateTime.now().toString(),
+                };
+                context.pop(result); // 关闭当前页面并传递数据
               },
               child: Text("🔙返回"),
             ),

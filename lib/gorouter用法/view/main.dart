@@ -45,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: ElevatedButton(
-          onPressed: () {
+          onPressed: () async {
             //  push放  '/home' ; pushName放 name（路由里面配置的name）
             //  context.push(loginRouterName);
             //  context.pushReplacement(loginRouterName); //相当于getx的 ..off
@@ -62,7 +62,10 @@ class _MyHomePageState extends State<MyHomePage> {
             };
             final encodedParams = queryParams.entries.map((e) => '${Uri.encodeQueryComponent(e.key)}=${Uri.encodeQueryComponent(e.value)}').join('&');
             final path = '/$loginRouterName?$encodedParams'; //拼接完整路径
-            context.pushNamed("login", queryParameters: queryParams);
+            var result =await context.pushNamed("login", queryParameters: queryParams);
+            print("第二个页面返回的值 $result");
+            print("第二个页面返回的值 ${(result as Map)['timestamp']}"); //取某一个值
+           
           },
           child: Text("Go to the Second screen"),
         ),
