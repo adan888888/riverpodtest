@@ -60,8 +60,6 @@ class _MyHomePageState extends State<MyHomePage> {
               'name': '张三', // 中文参数
               'isVip': 'true', // 布尔值需转为字符串
             };
-            final encodedParams = queryParams.entries.map((e) => '${Uri.encodeQueryComponent(e.key)}=${Uri.encodeQueryComponent(e.value)}').join('&');
-            final path = '/$loginRouterName?$encodedParams'; //拼接完整路径
             var result =await context.pushNamed("login", queryParameters: queryParams);
             print("第二个页面返回的值 $result");
             print("第二个页面返回的值 ${(result as Map)['timestamp']}"); //取某一个值
