@@ -18,8 +18,12 @@ GoRouter appRouter = GoRouter(
       },
       name: "login",
       builder: (context, state) {
-        var user = (state.extra as User?);
-        return LoginScreen(user: user);
+        //对象传参数
+        // var user = (state.extra as User?);
+        // return LoginScreen(user: user);
+        
+        //  第2种 queryParameters传参,  GoRouterState用于解析 queryParameters
+        return LoginScreen(state:state);
       },
     ),
   ],

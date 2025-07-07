@@ -46,24 +46,27 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: ElevatedButton(
           onPressed: () {
+            //  push放  '/home' ; pushName放 name（路由里面配置的name）
             //  context.push(loginRouterName);
-            //  context.pushReplacement(loginRouterName,extra: "我是第一个页面过的参数"); //相当于getx的 ..off
+            //  context.pushReplacement(loginRouterName); //相当于getx的 ..off
+
+            //第1种： extra: user --对象
             final user = User(name: 'John', age: 30);
             context.push(loginRouterName, extra: user); //跳转并带参数
 
-            //其它传参 queryParameters 
-            // context.goNamed('detail', queryParameters: {'name': 'John'});
-            //   builder: (context, state) {
-            //   final String? name = state.queryParameters['name'];
-            //   return DetailScreen(name: name);
-            // },
-
+            //第2种：queryParameters 注意⚠️URL 参数始终是字符串，需手动转换为其他类型（如int.tryParse）
+            final queryParams = {
+              'id': '123', // 字符串参数
+              'name': '张三', // 中文参数
+              'isVip': 'true', // 布尔值需转为字符串
+            };
+            final encodedParams = queryParams.entries.map((e) => '${Uri.encodeQueryComponent(e.key)}=${Uri.encodeQueryComponent(e.value)}').join('&');
+            final path = '/$loginRouterName?$encodedParams'; //拼接完整路径
+            context.pushNamed("login", queryParameters: queryParams);
           },
-          child: Text("Go to the Details screen"),
+          child: Text("Go to the Second screen"),
         ),
       ),
     );
   }
 }
-
-
