@@ -1,7 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:riverpodtest/gorouter%E7%94%A8%E6%B3%95/view/main.dart';
 
-import '../../3.0StateNotifierProvider.dart';
 import 'app_route_path.dart';
 import '../view/second.dart';
 

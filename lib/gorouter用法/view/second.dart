@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../../3.0StateNotifierProvider.dart';
-import '../router/app_route_path.dart';
 
 class LoginScreen extends StatelessWidget {
   //第1种 对象接收参数
