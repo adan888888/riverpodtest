@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:riverpodtest/gorouter%E7%94%A8%E6%B3%95/app_route.dart';
+import 'package:riverpodtest/gorouter%E7%94%A8%E6%B3%95/router/app_route.dart';
 
 import '../../3.0StateNotifierProvider.dart';
-import '../app_route_name.dart';
+import '../router/app_route_path.dart';
 
 void main() {
   runApp(const MyApp());
