@@ -3,13 +3,18 @@ import '../models/user.dart';
 
 part 'user_provider.g.dart';
 
+///这个就相当于 StateNotifierProvider的注解版本
+///
+/// 注解规则，_$后面必须跟class后面的类名
 @riverpod
-class UserNotifier extends _$UserNotifier {
+class UserController extends _$UserController {
+  // @override
+  // User build() {
+  //   // 初始状态：游客用户
+  //   return const User(name: 'Guest', age: 100, address: "深圳");
+  // }
   @override
-  User build() {
-    // 初始状态：游客用户
-    return const User(name: 'Guest', age: 100, address: "深圳");
-  }
+  User build() => const User();//初始化
 
   // 更新用户信息
   void updateUserInfo({String? name, int? age, String? avatarUrl}) {

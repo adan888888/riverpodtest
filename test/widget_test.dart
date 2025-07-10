@@ -8,7 +8,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:riverpodtest/1.%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/2.0counterProvider.dart';
+import 'package:riverpodtest/1.%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/2.0stateProvider.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {

@@ -20,7 +20,8 @@ class UserScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final user = ref.watch(userNotifierProvider);
+    final user = ref.watch(userControllerProvider);
+    final read = ref.read(userControllerProvider.notifier);
 
     return Scaffold(
       appBar: AppBar(
@@ -50,25 +51,23 @@ class UserScreen extends ConsumerWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 ElevatedButton(
-                  onPressed: () => ref.read(userNotifierProvider.notifier).loadUser('1'),
+                  onPressed: () => read.loadUser('1'),
                   child: const Text('Load User'),
                 ),
 
                 ElevatedButton(
                   onPressed: () {
-                    ref
-                        .read(userNotifierProvider.notifier)
-                        .updateUserInfo(
-                          name: 'Jane Smith',
-                          age: 25,
-                          avatarUrl: 'https://picsum.photos/id/65/200/200',
-                        );
+                    read.updateUserInfo(
+                      name: 'Jane Smith',
+                      age: 25,
+                      avatarUrl: 'https://picsum.photos/id/65/200/200',
+                    );
                   },
                   child: const Text('Update Info'),
                 ),
 
                 ElevatedButton(
-                  onPressed: () => ref.read(userNotifierProvider.notifier).upgradeToPremium(),
+                  onPressed: () => read.upgradeToPremium(),
                   child: const Text('Go Premium'),
                 ),
               ],

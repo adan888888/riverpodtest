@@ -6,22 +6,24 @@ part of 'user_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$userNotifierHash() => r'32be6b8c600214672cce7c9278b96164ce2a537f';
+String _$userControllerHash() => r'6f3435f6c8e22113a6ffec220522bf11600908a3';
 
-/// See also [UserNotifier].
-@ProviderFor(UserNotifier)
-final userNotifierProvider =
-    AutoDisposeNotifierProvider<UserNotifier, User>.internal(
-      UserNotifier.new,
-      name: r'userNotifierProvider',
+///这个就相当于 StateNotifierProvider的注解版本
+///
+/// Copied from [UserController].
+@ProviderFor(UserController)
+final userControllerProvider =
+    AutoDisposeNotifierProvider<UserController, User>.internal(
+      UserController.new,
+      name: r'userControllerProvider',
       debugGetCreateSourceHash:
           const bool.fromEnvironment('dart.vm.product')
               ? null
-              : _$userNotifierHash,
+              : _$userControllerHash,
       dependencies: null,
       allTransitiveDependencies: null,
     );
 
-typedef _$UserNotifier = AutoDisposeNotifier<User>;
+typedef _$UserController = AutoDisposeNotifier<User>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
