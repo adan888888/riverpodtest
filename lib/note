@@ -13,4 +13,73 @@ GoRouter和getx的路由的对比：
 
 总结：
     GoRouter：性能稳定，适合大型应用和复杂导航，与官方生态集成更好。
-    GetX Router：启动和导航速度略优，适合快速开发和中小型项目。  
+    GetX Router：启动和导航速度略优，适合快速开发和中小型项目。
+
+
+
+
+
+
+
+ riverpod相对就的使用注解的几种方式：
+ 一、基础 Provider
+   final apiClientProvider = Provider((ref) => ApiClient());
+
+   @ProviderFor(ApiClient)
+   final apiClientProvider = Provider((ref) => ApiClient());
+
+二、StateProvider
+   final counterProvider = StateProvider((ref) => 0);
+
+   @riverpod
+   int counter(CounterRef ref) => 0;
+
+
+三、StateNotifierProvider
+   class CounterNotifier extends StateNotifier<int> {
+     CounterNotifier() : super(0);
+     void increment() => state++;
+   }
+   final counterProvider = StateNotifierProvider((ref) => CounterNotifier());
+
+   ------------- ------------- ------------- -------------
+   @riverpod
+   class Counter extends _$Counter {
+     @override
+     int build() => 0; // 初始状态
+     void increment() => state++;
+   }
+
+四、FutureProvider
+   final userFutureProvider = FutureProvider<User>((ref) async {
+     return await fetchUser();
+   });
+   ------------- ------------- ------------- -------------
+   @riverpod
+   Future<User> userData(UserDataRef ref) async {
+     return await fetchUser();
+   }
+
+五、StreamProvider
+   final chatStreamProvider = StreamProvider((ref) {
+     return ref.watch(chatServiceProvider).messagesStream;
+   });
+   ------------- ------------- ------------- -------------
+   @riverpod
+   Stream<Message> chatMessages(ChatMessagesRef ref) {
+     return ref.watch(chatServiceProvider).messagesStream;
+   }
+
+使用注解的优势
+    更少的样板代码：无需手动创建 StateNotifier 类或 Provider 实例。
+    自动类型推导：注解自动生成正确的类型，减少类型错误。
+    更好的代码组织：状态逻辑和状态定义集中在一个类 / 函数中。
+    内置生命周期管理：例如 ref.keepAlive() 简化资源管理。
+
+总结：
+    用法	                        释放时机	         适用场景
+    普通 StateNotifierProvider	应用退出时释放	需要全局持久化的状态（如用户信息）
+    autoDispose修饰符	最后一个监听者取消监听时释放	临时状态（如页面级计数器）
+    autoDispose + ref.keepAlive	手动控制释放时机（如主动调用 link.close）	需灵活管理生命周期的场景
+    
+    简言之，默认不释放，autoDispose 无监听时释放，这与是否使用注解无关，仅由 autoDispose 修饰符和监听状态决定。

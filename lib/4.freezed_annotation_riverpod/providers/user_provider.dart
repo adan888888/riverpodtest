@@ -1,7 +1,7 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../models/user.dart';
 
-part 'user_provider.g.dart';
+part 'user_provider.g.dart'; //生成的文件名称
 
 ///这个就相当于 StateNotifierProvider的注解版本
 ///
