@@ -1,5 +1,5 @@
 import 'package:go_router/go_router.dart';
-import 'package:riverpodtest/gorouter%E7%94%A8%E6%B3%95/view/main.dart';
+import 'package:riverpodtest/3.%E8%B7%AF%E7%94%B1%E7%94%A8%E6%B3%95-Gorouter%E7%9A%84%E7%94%A8%E6%B3%95/view/main.dart';
 
 import 'app_route_path.dart';
 import '../view/second.dart';

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:riverpodtest/gorouter%E7%94%A8%E6%B3%95/router/app_route.dart';
+import 'package:riverpodtest/3.%E8%B7%AF%E7%94%B1%E7%94%A8%E6%B3%95-Gorouter%E7%9A%84%E7%94%A8%E6%B3%95/router/app_route.dart';
 
-import '../../3.0StateNotifierProvider.dart';
+import '../../1.状态管理/3.0StateNotifierProvider.dart';
 import '../router/app_route_path.dart';
 
 void main() {
@@ -25,6 +25,8 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
+
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
