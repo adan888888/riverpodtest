@@ -10,6 +10,8 @@ String _$userControllerHash() => r'6f3435f6c8e22113a6ffec220522bf11600908a3';
 
 ///这个就相当于 StateNotifierProvider的注解版本
 ///
+/// 注解规则，_$后面必须跟class后面的类名
+///
 /// Copied from [UserController].
 @ProviderFor(UserController)
 final userControllerProvider =
