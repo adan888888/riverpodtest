@@ -1,3 +1,4 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../models/user.dart';
 
@@ -14,15 +15,17 @@ class UserController extends _$UserController {
   //   return const User(name: 'Guest', age: 100, address: "深圳");
   // }
   @override
-  User build() => const User();//初始化
+  User build() => const User(); //初始化
 
   // 更新用户信息
-  void updateUserInfo({String? name, int? age, String? avatarUrl}) {
+  Future<void> updateUserInfo({String? name, int? age, String? avatarUrl}) async {
+    //1.重新赋值
     state = state.copyWith(
       name: name ?? state.name,
       age: age ?? state.age,
       avatarUrl: avatarUrl ?? state.avatarUrl,
     );
+    ref.invalidate(userControllerProvider);//
   }
 
   // 升级为高级用户

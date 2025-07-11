@@ -22,6 +22,11 @@ class UserScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final user = ref.watch(userControllerProvider);
     final read = ref.read(userControllerProvider.notifier);
+    switch (user) {
+      case value:
+        break;
+      default:
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -50,10 +55,7 @@ class UserScreen extends ConsumerWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                ElevatedButton(
-                  onPressed: () => read.loadUser('1'),
-                  child: const Text('Load User'),
-                ),
+                ElevatedButton(onPressed: () => read.loadUser('1'), child: const Text('Load User')),
 
                 ElevatedButton(
                   onPressed: () {

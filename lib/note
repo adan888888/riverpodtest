@@ -24,13 +24,13 @@ GoRouter和getx的路由的对比：
  riverpod相对就的使用注解的几种方式：
  一、基础 Provider
    final apiClientProvider = Provider((ref) => ApiClient());
-
+   ------------- ------------- ------------- -------------
    @ProviderFor(ApiClient)
    final apiClientProvider = Provider((ref) => ApiClient());
 
 二、StateProvider
    final counterProvider = StateProvider((ref) => 0);
-
+   ------------- ------------- ------------- -------------
    @riverpod
    int counter(CounterRef ref) => 0;
 
