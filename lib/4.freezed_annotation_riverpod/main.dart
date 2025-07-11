@@ -22,11 +22,6 @@ class UserScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final user = ref.watch(userControllerProvider);
     final read = ref.read(userControllerProvider.notifier);
-    switch (user) {
-      case value:
-        break;
-      default:
-    }
 
     return Scaffold(
       appBar: AppBar(
