@@ -58,6 +58,7 @@ class _UserScreenState extends ConsumerState<UserScreen> {
           setState(() => _userId++); //需要刷新界面的还必须用setState方法(更新内部状态)
           ref.read(userNotifierProvider(_userId).notifier).fetchUser(_userId); //更新provider状态
           // ref.invalidate(userNotifierProvider(_userId));
+          // ref.refresh(userNotifierProvider(_userId));  
 
           // _userId++;
           // ref.read(userNotifierProvider(_userId).notifier).fetchUser(_userId);

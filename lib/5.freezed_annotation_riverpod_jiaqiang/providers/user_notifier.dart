@@ -1,4 +1,3 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../models/user.dart';
 
@@ -17,8 +16,6 @@ class UserRepository {
 }
 
 final userRepositoryProvider = Provider((ref) => UserRepository());
-// 创建一个单独的 Provider 管理 userId
-final currentUserIdProvider = StateProvider((ref) => 1);
 
 @riverpod
 class UserNotifier extends _$UserNotifier {

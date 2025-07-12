@@ -13,6 +13,9 @@ dependencies:
 
   http: ^1.1.0  # 如果需要实际网络请求
   cupertino_icons: ^1.0.8
+  #上拉下拉刷新
+  easy_refresh: ^3.4.0
+
   # 添加 riverpod 核心库
   flutter_riverpod: ^2.4.0  # 使用最新稳定版本
   # 可选：添加 hooks_riverpod 以支持 HookWidget

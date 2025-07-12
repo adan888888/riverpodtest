@@ -28,5 +28,6 @@ linter:
 analyzer:
   errors:
     invalid_annotation_target: ignore
+    cast_from_null_always_fails: ignore ignore
 
 
