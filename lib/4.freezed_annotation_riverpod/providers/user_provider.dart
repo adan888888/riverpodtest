@@ -25,7 +25,7 @@ class UserController extends _$UserController {
       age: age ?? state.age,
       avatarUrl: avatarUrl ?? state.avatarUrl,
     );
-    ref.invalidate(userControllerProvider);//
+    // ref.invalidate(userControllerProvider);//销毁并重建 Provider(1.所有与该 Provider 关联的状态会被重置为初始值（即 build() 方法的返回值）。2.会执行ondispose)
   }
 
   // 升级为高级用户
