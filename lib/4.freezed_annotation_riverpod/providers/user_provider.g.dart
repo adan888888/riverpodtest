@@ -6,10 +6,9 @@ part of 'user_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$userControllerHash() => r'289b589cff549818596c1bcef3c8241a28d9217d';
+String _$userControllerHash() => r'5b6eca68bd337ed40d35151711e59101c55f45d7';
 
 ///这个就相当于 StateNotifierProvider的注解版本
-///
 /// 注解规则，_$后面必须跟class后面的类名
 ///
 /// Copied from [UserController].

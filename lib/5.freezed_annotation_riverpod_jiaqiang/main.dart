@@ -55,8 +55,8 @@ class _UserScreenState extends ConsumerState<UserScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          setState(() => _userId++); //需要刷新界面的还必须用setState方法(更新内部状态)
-          ref.read(userNotifierProvider(_userId).notifier).fetchUser(_userId); //更新provider状态
+          setState(() => _userId++); //需要刷新界面的还必须用setState方法(更新内部状态)  /*调了这个方法，直接使notifierprovider里面的build 重新运行*/
+          // ref.read(userNotifierProvider(_userId).notifier).fetchUser(_userId); //更新provider状态
           // ref.invalidate(userNotifierProvider(_userId));
           // ref.refresh(userNotifierProvider(_userId));  
 
