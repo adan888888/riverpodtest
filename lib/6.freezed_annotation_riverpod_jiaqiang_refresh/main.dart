@@ -136,6 +136,7 @@ class PostListScreen extends ConsumerWidget {
         enablePullDown: true,
         enablePullUp: true,
         controller: read.refreshController,
+        footer: ClassicFooter(loadStyle: LoadStyle.ShowWhenLoading),
         onRefresh: () => read.refresh(),
         onLoading: () => read.loadMore(),
         child: postList.when(
