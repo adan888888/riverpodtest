@@ -1,0 +1,25 @@
+分层设计
+    UI 层：只负责展示，通过 ref.read 调用方法，通过 ref.watch 获取状态。
+    逻辑层：Notifier 处理业务逻辑，与 Repository 交互。
+    数据层：Repository 负责网络 / 数据库操作。
+
+
+lib/
+  providers/
+    auth_provider.dart
+    post_provider.dart
+  repositories/
+    auth_repository.dart
+    post_repository.dart
+  models/
+    user.dart
+    post.dart
+  ui/
+    screens/
+      home_screen.dart
+      login_screen.dart
+    widgets/
+      post_item.dart
+
+
+Riverpod DevTools：可视化状态变化和依赖关系。

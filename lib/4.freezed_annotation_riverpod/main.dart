@@ -20,8 +20,8 @@ class UserScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final user = ref.watch(userControllerProvider);
-    final read = ref.read(userControllerProvider.notifier);
+    final user = ref.watch(userControllerProvider); //通过 ref.watch 获取状态
+    final read = ref.read(userControllerProvider.notifier); //通过 ref.read 调用方法 和属性
 
     return Scaffold(
       appBar: AppBar(

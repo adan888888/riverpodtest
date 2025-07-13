@@ -5,7 +5,6 @@ import '../models/user.dart';
 part 'user_provider.g.dart'; //生成的文件名称
 
 ///这个就相当于 StateNotifierProvider的注解版本
-///
 /// 注解规则，_$后面必须跟class后面的类名
 @riverpod
 class UserController extends _$UserController {
