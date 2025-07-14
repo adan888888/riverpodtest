@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:logger/logger.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'providers/post_list_notifier.dart';
 
@@ -8,6 +9,12 @@ final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
+  Logger(printer: CustomPrinter()).e(
+    'Logger is working!Logger is working!Logger is working!Logger is working!Logger is '
+    'working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is '
+    'working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is '
+    'working!Logger is working! 哈哈',
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -200,5 +207,23 @@ class PostListScreen extends ConsumerWidget {
         ),
       ),
     );
+  }
+}
+
+class CustomPrinter extends LogPrinter {
+
+  @override
+  List<String> log(LogEvent event) {
+    final message = event.message.toString();
+    final lines = <String>[];
+
+    // 每 1000 个字符分段
+    const maxLength = 800;
+    for (int i = 0; i < message.length; i += maxLength) {
+      final end = (i + maxLength < message.length) ? i + maxLength : message.length;
+      lines.add(message.substring(i, end));
+    }
+
+    return lines;
   }
 }
