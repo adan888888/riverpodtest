@@ -9,12 +9,19 @@ final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
-  Logger(printer: CustomPrinter()).e(
+  Logger(printer: PrettyPrinter(
+      methodCount: 1,         // 不显示方法调用栈
+      errorMethodCount: 2,    // 错误时显示 8 行调用栈
+      lineLength: 120,        // 每行最大宽度
+      colors: true,           // 启用颜色
+      printEmojis: true,      // 打印 emoji
+      noBoxingByDefault: false // 强制使用边框，确保分段（适合长文本）
+  ),).d(
     'Logger is working!Logger is working!Logger is working!Logger is working!Logger is '
     'working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is '
     'working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is working!Logger is '
     'working!Logger is working! 哈哈',
-  );
+  stackTrace: StackTrace.current);
 }
 
 class MyApp extends StatelessWidget {
