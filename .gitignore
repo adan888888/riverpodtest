@@ -45,3 +45,7 @@ app.*.map.json
 /android/app/release
 .vscode/settings.json
 .vscode/launch.json
+
+# FVM Version Cache
+.fvm/
+pubspec.lock
