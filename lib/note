@@ -17,7 +17,8 @@ GoRouter和getx的路由的对比：
 
 
 
-
+riverpod 注解 方式 生成模板代码的命令是
+    dart run build_runner build --delete-conflicting-outputs
 
 
 
