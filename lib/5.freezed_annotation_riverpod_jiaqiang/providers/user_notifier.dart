@@ -5,6 +5,7 @@ part 'user_notifier.g.dart';
 
 class UserRepository {
   Future<User> getUser(int id) async {
+    print("build====> getUser =$id");
     await Future.delayed(const Duration(seconds: 3)); // 模拟网络延迟
     return User(
       id: '$id',
